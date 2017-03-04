@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
@@ -88,8 +89,20 @@ public class MainActivity extends AppCompatActivity {
                     CheckBox checkBox = (CheckBox) singView;
                     stringBuilder.append(" " + checkBox.isChecked());
                 } else if (className.equalsIgnoreCase("RadioGroup")) {
-                    RadioGroup checkBox = (RadioGroup) singView;
-                    stringBuilder.append(" " + checkBox.getCheckedRadioButtonId());
+                    RadioGroup radioGroup = (RadioGroup) singView;
+
+                    if(radioGroup.getCheckedRadioButtonId()!=-1){
+                        int id= radioGroup.getCheckedRadioButtonId();
+                        View radioButton = radioGroup.findViewById(id);
+                        int radioId = radioGroup.indexOfChild(radioButton);
+                        RadioButton btn = (RadioButton) radioGroup.getChildAt(radioId);
+                        String selection = (String) btn.getText();
+
+                        stringBuilder.append(" " + selection);
+                    }
+
+
+
                 }
 
             }
