@@ -100,17 +100,12 @@ public class MainActivity extends AppCompatActivity {
 
                         stringBuilder.append(" " + selection);
                     }
-
-
-
                 }
-
             }
             Log.i("All Data ", stringBuilder.toString());
             showAlertDialog(view.getContext(), "Data", stringBuilder.toString());
         }
     };
-
 
     public void appCompatEditText(String hint) {
         AppCompatEditText editText = new AppCompatEditText(this);
